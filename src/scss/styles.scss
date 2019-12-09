@@ -115,3 +115,51 @@ body {
         text-decoration: none;
     }
 }
+
+.news {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 10px;
+
+    .content-wrapp {
+        max-width: 60%;
+        text-align: center;
+
+        .content {
+            text-align: justify;
+        }
+    }
+
+    .edit-modal {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        transform: translate(-50%);
+        z-index: 1050;
+        transition: opacity 400ms ease-in;
+        border: 1px solid rgba(0, 0, 0, .2);
+        background: #fff;
+        padding: 20px;
+
+        strong {
+            display: block;
+        }
+
+        .btn-wrapp {
+            text-align: right;
+        }
+
+        .input-edit {
+            width: 100%;
+        }
+        .textarea-edit {
+            resize: none;
+            outline: none;
+        }
+    }
+}
