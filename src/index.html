@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/style.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+    <title>Registation</title>
+</head>
+
+<body>
+    <div class='wrapper'>
+        <div class='container'>
+            <div class='form-wrapp'>
+                <strong class='form-name'>Registration</strong>
+                <form  class='form'>
+                    <label for="mail">
+                        <span>Login :</span>
+                        <input type="email" placeholder="Enter E-mail" id='mail' required onkeyup="checkParams()">
+                    </label>
+                    <label for="pass">
+                        <span>Password :</span>
+                        <input type="password" placeholder="Enter Password" id='pass' required maxlength="8" onkeyup="checkParams()">
+                    </label>
+                    <div class="btn-wrapp">
+                        <input type="submit" id='btnSubmit' value='Submit' disabled>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
