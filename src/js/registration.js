@@ -1,6 +1,5 @@
 $(document).on('click', '#btnSubmit', function (e) {
     e.preventDefault();
-    e.stopPropagation();
     registerUser();
 });
 
@@ -31,7 +30,12 @@ const registerUser = function () {
     const mail = $('#mail').val();
     const pass = $('#pass').val();
     if (mail == emails.admin && pass.length >= 2 || mail == emails.user && pass.length >= 2) {
-        window.location.href = 'news.html';
+        if(mail==emails.admin){
+            localStorage.setItem('userType',1);
+        } else if(mail == emails.user){
+            localStorage.setItem('userType',2);
+        }
+        window.location.assign('news.html');
     }
     else {
         alert("email is not valid or password is too short");
