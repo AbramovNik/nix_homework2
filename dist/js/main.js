@@ -1,3 +1,9 @@
+const news = [];
+
+
+
+
+
 $(document).on('click', '#open-modal', function () {
     openModal();
 });
@@ -32,26 +38,26 @@ $(document).on('click', '.edit', function () {
         <button class = 'edit-post'>Edit</button>
         </div>
         </div>`
-        
+
     );
 
-    const editPost = function(){
+    const editPost = function () {
         const editTitle = $('.input-edit').val();
         const editContent = $('.textarea-edit').val();
         $(this).parents('.news').find('.title').text(editTitle);
         $(this).parents('.news').find('.content').text(editContent);
         $(this).parents('.news').find('.edit-modal').remove();
-    
+
     }
 
-    const closeModal = function(){
+    const closeModal = function () {
         $(this).parents('.news').find('.edit-modal').remove();
     }
 
     $('.close-modal').on('click', closeModal);
 
     $('.edit-post').on('click', editPost);
-    
+
 });
 
 
@@ -65,7 +71,7 @@ const closeModal = function () {
     $('#title').val('');
     $('#content').val('');
 
-    
+
 }
 
 
@@ -84,6 +90,9 @@ function checkPost() {
 const publicatePost = function () {
     const title = $('#title').val();
     const content = $('#content').val();
+    news.push({'title':title,'content': content});
+    console.log(news);   
+    localStorage.setItem('news',JSON.stringify(news));
     $('#openModal').removeClass('modal-open');
     $('.news-list').append(`<div class = 'news'>
     <div class = 'content-wrapp'>
@@ -95,8 +104,8 @@ const publicatePost = function () {
  <button class = 'delete'>delete</button>
  </div>
  </div>`);
- $('#title').val('');
- $('#content').val('');
+    $('#title').val('');
+    $('#content').val('');
 }
 
 
@@ -135,6 +144,7 @@ const registerUser = function () {
     if (mail == emails.admin && pass.length >= 2 || mail == emails.user && pass.length >= 2) {
         if(mail==emails.admin){
             localStorage.setItem('userType',1);
+            
         } else if(mail == emails.user){
             localStorage.setItem('userType',2);
         }

@@ -32,6 +32,7 @@ const registerUser = function () {
     if (mail == emails.admin && pass.length >= 2 || mail == emails.user && pass.length >= 2) {
         if(mail==emails.admin){
             localStorage.setItem('userType',1);
+            
         } else if(mail == emails.user){
             localStorage.setItem('userType',2);
         }

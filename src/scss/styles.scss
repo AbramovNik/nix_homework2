@@ -73,6 +73,7 @@ body {
     transform: translate(-50%);
     z-index: 1050;
     opacity: 0;
+    display: none;
     visibility: hidden;
     transition: opacity 400ms ease-in;
     border: 1px solid rgba(0, 0, 0, .2);
@@ -90,6 +91,7 @@ body {
     &.modal-open {
         opacity: 1;
         visibility: visible;
+        display: block;
     }
 
     input {
