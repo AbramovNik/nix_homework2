@@ -76,6 +76,15 @@ const closeModal = function () {
 
 
 
+const logOut = function() {
+    window.location.assign('index.html');
+    localStorage.removeItem('role');
+}
+
+$(document).on('click', '.logout', function () {
+    logOut();
+});
+
 function checkPost() {
     const title = $('#title').val();
     const content = $('#content').val();
@@ -90,9 +99,9 @@ function checkPost() {
 const publicatePost = function () {
     const title = $('#title').val();
     const content = $('#content').val();
-    news.push({'title':title,'content': content});
-    console.log(news);   
-    localStorage.setItem('news',JSON.stringify(news));
+    news.push({ 'title': title, 'content': content });
+    console.log(news);
+    localStorage.setItem('news', JSON.stringify(news));
     $('#openModal').removeClass('modal-open');
     $('.news-list').append(`<div class = 'news'>
     <div class = 'content-wrapp'>
@@ -108,4 +117,21 @@ const publicatePost = function () {
     $('#content').val('');
 }
 
+
+const renderTemplate = function () {
+    return (
+        $('.news-list').append(
+            `<div class = news>
+         <div class = 'content-wrapp'>
+         <strong class = 'title'>${title}</strong>
+        <p class = 'content'>${content}</p>
+        <div class = btn-wrapp>
+        <button class = 'edit'>edit</button>
+        <button class = 'delete'>delete</button>
+        </div>
+         </div>
+         </div>`
+        )
+    )
+}
 

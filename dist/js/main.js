@@ -76,6 +76,15 @@ const closeModal = function () {
 
 
 
+const logOut = function() {
+    window.location.assign('index.html');
+    localStorage.removeItem('role');
+}
+
+$(document).on('click', '.logout', function () {
+    logOut();
+});
+
 function checkPost() {
     const title = $('#title').val();
     const content = $('#content').val();
@@ -90,9 +99,9 @@ function checkPost() {
 const publicatePost = function () {
     const title = $('#title').val();
     const content = $('#content').val();
-    news.push({'title':title,'content': content});
-    console.log(news);   
-    localStorage.setItem('news',JSON.stringify(news));
+    news.push({ 'title': title, 'content': content });
+    console.log(news);
+    localStorage.setItem('news', JSON.stringify(news));
     $('#openModal').removeClass('modal-open');
     $('.news-list').append(`<div class = 'news'>
     <div class = 'content-wrapp'>
@@ -109,6 +118,23 @@ const publicatePost = function () {
 }
 
 
+const renderTemplate = function () {
+    return (
+        $('.news-list').append(
+            `<div class = news>
+         <div class = 'content-wrapp'>
+         <strong class = 'title'>${title}</strong>
+        <p class = 'content'>${content}</p>
+        <div class = btn-wrapp>
+        <button class = 'edit'>edit</button>
+        <button class = 'delete'>delete</button>
+        </div>
+         </div>
+         </div>`
+        )
+    )
+}
+
 
 $(document).on('click', '#btnSubmit', function (e) {
     e.preventDefault();
@@ -124,9 +150,15 @@ const emails = {
     user: 'user@email.com'
 }
 
+const roles = {
+    'admin': 'admin',
+    'user' : 'user'
+}
+
+
 function checkParams() {
-    const mail = $('#mail').val();
-    const pass = $('#pass').val();
+    const mail = $('.email').val();
+    const pass = $('.password').val();
 
     if (mail.length != 0 && pass.length != 0) {
         $('#btnSubmit').removeAttr('disabled');
@@ -138,21 +170,23 @@ function checkParams() {
 
 
 
+
 const registerUser = function () {
-    const mail = $('#mail').val();
-    const pass = $('#pass').val();
+    const mail = $('.email').val();
+    const pass = $('.password').val();
     if (mail == emails.admin && pass.length >= 2 || mail == emails.user && pass.length >= 2) {
         if(mail==emails.admin){
-            localStorage.setItem('userType',1);
+            localStorage.setItem('role','admin');
             
         } else if(mail == emails.user){
-            localStorage.setItem('userType',2);
+            localStorage.setItem('role','user');
         }
         window.location.assign('news.html');
     }
     else {
         alert("email is not valid or password is too short");
     }
+
 }
 
 

@@ -12,9 +12,15 @@ const emails = {
     user: 'user@email.com'
 }
 
+const roles = {
+    'admin': 'admin',
+    'user' : 'user'
+}
+
+
 function checkParams() {
-    const mail = $('#mail').val();
-    const pass = $('#pass').val();
+    const mail = $('.email').val();
+    const pass = $('.password').val();
 
     if (mail.length != 0 && pass.length != 0) {
         $('#btnSubmit').removeAttr('disabled');
@@ -26,21 +32,23 @@ function checkParams() {
 
 
 
+
 const registerUser = function () {
-    const mail = $('#mail').val();
-    const pass = $('#pass').val();
+    const mail = $('.email').val();
+    const pass = $('.password').val();
     if (mail == emails.admin && pass.length >= 2 || mail == emails.user && pass.length >= 2) {
         if(mail==emails.admin){
-            localStorage.setItem('userType',1);
+            localStorage.setItem('role','admin');
             
         } else if(mail == emails.user){
-            localStorage.setItem('userType',2);
+            localStorage.setItem('role','user');
         }
         window.location.assign('news.html');
     }
     else {
         alert("email is not valid or password is too short");
     }
+
 }
 
 
