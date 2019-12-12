@@ -18,23 +18,23 @@
             <div class="logout-wrapp">
                 <button class='logout'>LogOut</button>
             </div>
-            <button class='add-news' id='open-modal'>Add News</button>
+            <button class='add-news js-add-news' id='open-modal'>Add News</button>
             <div id="openModal" class="modal">
                 <div class="modal-header">
                     <div class="btn-wrapp">
-                        <button id='close-modal'>X</button>
+                        <button id='close-modal' class = 'js-close-modal'>X</button>
                     </div>
                     <label for="title">
                         <strong>Title</strong>
-                        <input type="text" id='title' onkeyup="checkPost()">
+                        <input type="text" id='title' class = 'js-title' onkeyup="checkPost()">
                     </label>
                 </div>
                 <div class="modal-body">
                     <strong>Content</strong>
-                    <textarea name="" id="content" cols="30" rows="10" onkeyup="checkPost()"></textarea>
+                    <textarea name="" id="content" cols="30" rows="10" onkeyup="checkPost()" class = 'js-content'></textarea>
                 </div>
                 <div class="btn-wrapp">
-                    <button class='add' id = 'publicate' disabled>Publicate</button>
+                    <button class='add js-publicate' id = 'publicate' disabled>Publicate</button>
                 </div>
             </div>
             <div class='news-list'>

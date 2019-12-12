@@ -17,22 +17,24 @@
         <div class='container'>
             <div class='form-wrapp'>
                 <strong class='form-name'>Registration</strong>
-                <form  class='form'>
-                    <label for="mail">
+                <form class='form'>
+                    <label for="email">
                         <span>Login :</span>
-                        <input type="email" placeholder="Enter E-mail" class='email' required onkeyup="checkParams()">
+                        <input type="email" placeholder="Enter E-mail" id='email' required onkeyup="checkInput()">
                     </label>
-                    <label for="pass">
+                    <label for="password">
                         <span>Password :</span>
-                        <input type="password" placeholder="Enter Password" class='password' required maxlength="8" onkeyup="checkParams()">
+                        <input type="password" placeholder="Enter Password" id='password' required maxlength="8"
+                            onkeyup="checkInput()">
                     </label>
                     <div class="btn-wrapp">
-                        <input type="submit" id='btnSubmit' value='Submit' disabled>
+                        <input type="submit" class='btnSubmit' value='Submit' disabled>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
 </body>
 
 </html>
